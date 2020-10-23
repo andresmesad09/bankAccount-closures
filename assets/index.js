@@ -13,14 +13,14 @@ function bankAccount() {
   copAccount = 0;
 
   return {
-    increase: function(account, amount) {
+    increase: function (account, amount) {
       if (account === 'cop') {
         copAccount += amount
       } else {
         usdAccount += amount
       }
     },
-    getAmount: function(account) {
+    getAmount: function (account) {
       if (account === 'cop') {
         return copAccount
       } else {
@@ -32,12 +32,10 @@ function bankAccount() {
 
 let myBank = bankAccount()
 
-function depositAndDisplay() {
-  myBank.increase(setCurrency(), setAmount())
+async function depositAndDisplay() {
+  await myBank.increase(setCurrency(), setAmount())
   account = setCurrency()
   total = myBank.getAmount(account)
   document.getElementById("amount").value = "";
   return `The new total of your ${account.toUpperCase()} account is ${total}`
 }
-
-module.exports = {setCurrency, setAmount, myBank, depositAndDisplay}
