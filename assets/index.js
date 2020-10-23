@@ -39,3 +39,5 @@ function depositAndDisplay() {
   document.getElementById("amount").value = "";
   return `The new total of your ${account.toUpperCase()} account is ${total}`
 }
+
+module.exports = {setCurrency, setAmount, myBank, depositAndDisplay}
